@@ -1,0 +1,309 @@
+/*.App {
+  text-align: center;
+}*/
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/*.App-header {
+  background-color: #0e0e0e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}*/
+
+.App-link {
+  color: #61dafb;
+}
+.song-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Form styling inside container */
+.music-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  margin-bottom: 30px; /* gap for search bar */
+}
+
+.music-form h2 {
+  text-align: center;
+  color: #06d7f3;
+  margin-bottom: 10px;
+}
+
+.music-form input {
+  padding: 12px;
+  border: 1px solid #06d7f3;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.music-form input:focus {
+  border-color: rgba(10, 10, 10, 0.6);
+  outline: none;
+  box-shadow: 0 0 6px rgba(29,185,84,0.5);
+}
+
+.music-form button {
+  padding: 12px;
+  background-color: #06d7f3;
+  color: #fbf8f8;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.music-form button:hover {
+  background-color: #0f0f0f;
+  transform: scale(1.05);
+}
+
+.song-heading {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  color: #06d7f3; /* Spotify green */
+}
+
+.song-search {
+  width: 80%;
+  max-width: 550px;
+  padding: 10px;
+  margin-bottom: 25px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1.5rem;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.song-search:focus {
+  box-shadow: 0 0 8px rgba(29, 185, 84, 0.8);
+  border-color: #1db954;
+}
+
+.song-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.music-card {
+  background: linear-gradient(135deg, #eb3ea3, #6f5353);
+  color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+.music-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+.music-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.music-artist {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.music-year,
+.music-genre {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.card-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-btn,
+.delete-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.update-btn {
+  background-color: #1db954; 
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* circular button */
+  padding: 10px;
+  font-size: 1.5rem; /* make the icon bigger */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: #17a74a; /* darker green on hover */
+  transform: scale(1.1); /* subtle zoom */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.update-btn:active {
+  transform: scale(0.95); /* press effect */
+}
+
+
+.delete-btn {
+  background-color: #e63946; /* bold red */
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* circular button */
+  padding: 10px;
+  font-size: 1.5rem; /* make the icon bigger */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c53030; /* darker red on hover */
+  transform: scale(1.1); /* subtle zoom */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.delete-btn:active {
+  transform: scale(0.95); /* press effect */
+}
+/* Overlay background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal card */
+.modal {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal h2 {
+  text-align: center;
+  color: #1db954;
+  margin-bottom: 15px;
+}
+
+/* Inputs styled like your add form */
+.modal input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.modal input:focus {
+  border-color: #1db954;
+  outline: none;
+  box-shadow: 0 0 6px rgba(29,185,84,0.5);
+}
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.modal-actions button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-actions button:first-child {
+  background-color: #0d0e0d;
+  color: #fff;
+}
+
+.modal-actions button:first-child:hover {
+  background-color: #17a74a;
+  transform: scale(1.05);
+}
+
+.modal-actions button:last-child {
+  background-color: #ccc;
+  color: #333;
+}
+
+.modal-actions button:last-child:hover {
+  background-color: #bbb;
+  transform: scale(1.05);
+}
+
+/* Simple fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
