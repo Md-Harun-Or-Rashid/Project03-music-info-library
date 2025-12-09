@@ -6,7 +6,7 @@ import { CiEdit } from "react-icons/ci";
 ;
 
 const API_URL = process.env.NODE_ENV==="production"
-                ? "https://project03-music-info-library.onrender.com"
+                ? "https://project03-music-info-library.onrender.com/api/musics"
                 : "http://localhost:3000/api/musics";
 
 function App() {
