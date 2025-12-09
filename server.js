@@ -1,21 +1,21 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+const express = require("express");// The web framework
+const mongoose = require("mongoose");// The database tool
+const cors = require("cors");// Allows browser requests from other domains
 const path = require("path");
+require('dotenv').config();            // Load variables from .env file
+// Configuration
 const app = express();
 const PORT = process.env.PORT || 3000;
-// Replace this [mongodb+srv://**************@cluster0.psf8akh.mongodb.net] with your real connection string from MongoDB Atlas
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://****************************@cluster0.psf8akh.mongodb.net";
-app.use(cors());
-app.use(express.json());
-mongoose
-    .connect(MONGODB_URI)
-    .then(() => console.log("Connected to MongoDB"))
-    .catch(err => {
-        console.error("MongoDB connection error:", err.message);
-        process.exit(1);
-    });
 
+// MIDDLEWARE
+app.use(cors());             // Enable Cross-Origin Resource Sharing
+app.use(express.json());     // Allow server to read JSON data in POST requests
+
+//DATABASE CONNECTION
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('DB Connection Error:', err));
+//SCHEMA DEFINITION
  const musicSchema = new mongoose.Schema(
     {
         title: { type: String, required: true },
@@ -26,9 +26,10 @@ mongoose
     },
     { timestamps: true }
 );
+// Create the model
 const Music = mongoose.model("Music", musicSchema); 
 
-// GET /api/musics - return all musics info
+// GET /api/musics - return all musics info , limit is 50
 app.get("/api/musics", async (req, res) => {
     try {
         const musics = await Music.find({}).limit(50);
