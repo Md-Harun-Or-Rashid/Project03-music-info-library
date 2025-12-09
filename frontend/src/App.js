@@ -6,7 +6,7 @@ import { CiEdit } from "react-icons/ci";
 ;
 
 const API_URL = process.env.NODE_ENV==="production"
-                ? "https://project03-music-info-library.onrender.com/api/musics"
+                ? "https://project03-music-info-library.onrender.com"
                 : "http://localhost:3000/api/musics";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   
   //Fetch data from backend
 
-  useEffect(()=>{axios.get("http://localhost:3000/api/musics").then((res)=>setSongs(res.data));},[])
+  // useEffect(()=>{axios.get("http://localhost:3000/api/musics").then((res)=>setSongs(res.data));},[])
 
   useEffect(() => {
   axios.get(`${API_URL}/api/musics`)
